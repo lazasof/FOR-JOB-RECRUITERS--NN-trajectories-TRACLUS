@@ -1,7 +1,6 @@
 # TRACLUS-for-NN-trajectories
 implementing the traclus algorithm on maritime vessels in the sea of Aegean and a fully connected feed forward neural network<br>
 the data wrangling was provided by user eva-chon and changed where needed<br>
-the paper used https://hanj.cs.illinois.edu/pdf/sigmod07_jglee.pdf<br>
 ##################################inputs########################################################<br>
 given a timeseries of positions<br>
 1. it's transformed to a supervised problem with lag 10 [MMSI, TRAJId, dlon(t-10), dlat(t-10), speed(t-10) ,dt(-9),........,dlon(t-1), dlat(t-1), speed(t-1) ,dt(t), dlon(t), dlat(t)]<br>
@@ -17,3 +16,6 @@ given a timeseries of positions<br>
 1.3 cluster the data<br>
 1.4 create the representative trajectories of the clusters, and assign to the rows of the raw timeseries a cluster based on their distance from the rtr closest to them.<br>
 2.0 apply the same neural network but on clustered data<br>
+#REFERENCES<br>
+Jae-Gil Lee, Jiawei Han, and Kyu-Young Whang. Trajectory clustering: A partition-andgroup framework. SIGMOD ’07, page 593–604, New York, NY, USA, 2007. Association for
+Computing Machinery. https://hanj.cs.illinois.edu/pdf/sigmod07_jglee.pdf
