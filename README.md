@@ -1,6 +1,6 @@
 # TRACLUS-for-NN-trajectories
 implementing the traclus algorithm on maritime vessels in the sea of Aegean and a fully connected feed forward neural network<br>
-the data wrangling was provided by user eva-chon and changed where needed<br>
+Help with data wrangling was provided by user eva-chon and changed where needed<br>
 ##################################inputs########################################################<br>
 given a timeseries of positions<br>
 1. it's transformed to a supervised problem with lag 10 [MMSI, TRAJId, dlon(t-10), dlat(t-10), speed(t-10) ,dt(-9),........,dlon(t-1), dlat(t-1), speed(t-1) ,dt(t), dlon(t), dlat(t)]<br>
