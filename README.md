@@ -1,4 +1,5 @@
 # TRACLUS-for-NN-trajectories
+read the pdf Vessel_Future_Location_Prediction_using_Neural_Networks_and_TRACLUS_algorithm.pdf for a full walkthrough<br>
 implementing the traclus algorithm on maritime vessels in the sea of Aegean and a fully connected feed forward neural network<br>
 Help with data wrangling was provided by user eva-chon and changed where needed<br>
 ##################################inputs########################################################<br>
