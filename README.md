@@ -4,15 +4,15 @@ implementing the traclus algorithm on maritime vessels in the sea of Aegean and 
 Help with data wrangling was provided by user eva-chon and changed where needed<br>  
 
 
-**##################################inputs########################################################** <br>
+**INPUTS:** <br>
 given a timeseries of positions<br>
 1. it's transformed to a supervised problem with lag 10 [MMSI, TRAJId, dlon(t-10), dlat(t-10), speed(t-10) ,dt(-9),........,dlon(t-1), dlat(t-1), speed(t-1) ,dt(t), dlon(t), dlat(t)]<br>
 2. the representative trajectories is a dataframe of characteristic points [row,	tlon, tlat,	t+1lon, t+1lat, tags]<br>
 3. thedistances mentioned in 1.1 are a table [pointAid, pointBid, distance, tag of pointA]<br>
 4. the cluster representative trajectories are a timeseries [X0,Y0,X1,Y1,...,Xn,yn] there were 3 in total named rtr0, rtr1, rtr2 <br><br><br>
 
-5.   
-**##################################STEPS#########################################################** <br>
+
+**STEPS:** <br>
 
 **0.0 Data wrangling.** <br>
 **0.1 a simple fully connected feed forward NN.** <br>
@@ -24,7 +24,7 @@ given a timeseries of positions<br>
 **2.0 apply the same neural network but on clustered data** <br>
 
      
-**REFERENCES** <br>
+**REFERENCES:** <br>
 [1] Punit Rathore, Dheeraj Kumar, Sutharshan Rajasegarar, Marimuthu Palaniswami, and
 James C. Bezdek. A scalable framework for trajectory prediction. IEEE Transactions on
 Intelligent Transportation Systems, 20(10):3860–3874, 2019.  
