@@ -1,0 +1,27 @@
+############################# Douglas Peucker algorithm to create more trajectories based on the dataset.##############################################
+
+import numpy
+import pandas
+from simplification.cutil import simplify_coords_idx
+
+
+# df: dataframe that includes the data, each subtrajectoryhas a different id
+# cfg_val_augm_traj_points_min: minimum number of points of a trajectory
+
+newTr = pandas.DataFrame()
+id_augm = 0
+ids_augm_temp = df['id'].unique()
+mm = len(ids_augm_temp) # number of subtrajectories
+for m in range(mm):
+    data_temp = df[df['id'] == ids_augm_temp[m]].copy().reset_index(drop=True)
+    c = numpy.stack((data_temp['lat'].values, data_temp['lon'].values), axis=-1)
+    dp_diss_min, dp_diss_max, dp_diss_step = 10, 100, 10  # dissimilarity tolerance thresholds
+    for Th in numpy.arange(dp_diss_min, dp_diss_max, dp_diss_step):
+        g_idx = numpy.asarray(simplify_coords_idx(c, Th))  # Simplify a LineString using Ramer–Douglas–Peucker
+        if g_idx.shape[0] <= cfg_val_augm_traj_points_min:
+            break
+        g = data_temp.loc[g_idx].copy().reset_index(drop=True)
+        g['id_augm'] = id_augm
+        id_augm = id_augm + 1
+        newTr = pandas.concat([newTr, g], axis=0)
+print('Number of trajectories due to augmentation  = ', newTr['id_augm'].unique().shape[0])
